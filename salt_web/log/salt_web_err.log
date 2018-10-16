@@ -1,0 +1,121 @@
+[2018-10-16 11:14:46,019][Thread-3:440][task_id:django.request][exception.py:135][ERROR][Internal Server Error: /login/]
+Traceback (most recent call last):
+  File "D:\solftware\python2.7\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "D:\solftware\python2.7\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\solftware\python2.7\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\work\work\salt-web\salt_web\user_center\views.py", line 23, in web_login
+    return render(requests, 'login.html')
+  File "D:\solftware\python2.7\lib\site-packages\django\shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\solftware\python2.7\lib\site-packages\django\template\loader.py", line 67, in render_to_string
+    template = get_template(template_name, using=using)
+  File "D:\solftware\python2.7\lib\site-packages\django\template\loader.py", line 25, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+TemplateDoesNotExist: login.html
+[2018-10-16 11:16:02,174][Thread-11:5556][task_id:django.request][exception.py:135][ERROR][Internal Server Error: /login]
+Traceback (most recent call last):
+  File "D:\solftware\python2.7\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "D:\solftware\python2.7\lib\site-packages\django\utils\deprecation.py", line 138, in __call__
+    response = self.process_request(request)
+  File "D:\solftware\python2.7\lib\site-packages\django\middleware\common.py", line 64, in process_request
+    path = self.get_full_path_with_slash(request)
+  File "D:\solftware\python2.7\lib\site-packages\django\middleware\common.py", line 104, in get_full_path_with_slash
+    'url': request.get_host() + new_path,
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8080/login/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+[2018-10-16 11:20:39,532][Thread-22:14720][task_id:django.request][exception.py:135][ERROR][Internal Server Error: /login/]
+Traceback (most recent call last):
+  File "D:\solftware\python2.7\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "D:\solftware\python2.7\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\solftware\python2.7\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\work\work\salt-web\salt_web\user_center\views.py", line 21, in web_login
+    messages.ERROR(requests, '鐢ㄦ埛鍚嶆垨瀵嗙爜閿欒')
+TypeError: 'int' object is not callable
+[2018-10-16 11:21:57,298][Thread-26:15100][task_id:django.request][exception.py:135][ERROR][Internal Server Error: /login/]
+Traceback (most recent call last):
+  File "D:\solftware\python2.7\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "D:\solftware\python2.7\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\solftware\python2.7\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\work\work\salt-web\salt_web\user_center\views.py", line 21, in web_login
+    messages.ERROR(requests, '鐢ㄦ埛鍚嶆垨瀵嗙爜閿欒')
+TypeError: 'int' object is not callable
+[2018-10-16 11:27:55,335][Thread-4:11672][task_id:django.request][exception.py:135][ERROR][Internal Server Error: /login/]
+Traceback (most recent call last):
+  File "D:\solftware\python2.7\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "D:\solftware\python2.7\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\solftware\python2.7\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\work\work\salt-web\salt_web\user_center\views.py", line 21, in web_login
+    return messages.ERROR(requests, '鐢ㄦ埛鍚嶆垨瀵嗙爜閿欒')
+TypeError: 'int' object is not callable
+[2018-10-16 11:30:17,457][Thread-4:15396][task_id:django.request][exception.py:135][ERROR][Internal Server Error: /login/]
+Traceback (most recent call last):
+  File "D:\solftware\python2.7\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "D:\solftware\python2.7\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\solftware\python2.7\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\work\work\salt-web\salt_web\user_center\views.py", line 21, in web_login
+    messages.ERROR(requests, '鐢ㄦ埛鍚嶆垨瀵嗙爜閿欒')
+TypeError: 'int' object is not callable
+[2018-10-16 11:32:33,361][Thread-4:8440][task_id:django.request][exception.py:135][ERROR][Internal Server Error: /login/]
+Traceback (most recent call last):
+  File "D:\solftware\python2.7\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "D:\solftware\python2.7\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\solftware\python2.7\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\work\work\salt-web\salt_web\user_center\views.py", line 22, in web_login
+    messages.ERROR(requests, '鐢ㄦ埛鍚嶆垨瀵嗙爜閿欒')
+TypeError: 'int' object is not callable
+[2018-10-16 11:36:28,953][Thread-8:15424][task_id:django.request][exception.py:135][ERROR][Internal Server Error: /login/]
+Traceback (most recent call last):
+  File "D:\solftware\python2.7\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "D:\solftware\python2.7\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\solftware\python2.7\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\work\work\salt-web\salt_web\user_center\views.py", line 22, in web_login
+    messages.ERROR(requests, '鐢ㄦ埛鍚嶆垨瀵嗙爜閿欒')
+TypeError: 'int' object is not callable
+[2018-10-16 11:39:48,391][Thread-4:17216][task_id:django.request][exception.py:135][ERROR][Internal Server Error: /login/]
+Traceback (most recent call last):
+  File "D:\solftware\python2.7\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "D:\solftware\python2.7\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\solftware\python2.7\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\work\work\salt-web\salt_web\user_center\views.py", line 21, in web_login
+    messages.error(requests, '鐢ㄦ埛鍚嶆垨瀵嗙爜閿欒')
+AttributeError: 'module' object has no attribute 'error'
+[2018-10-16 11:42:53,921][Thread-4:16932][task_id:django.request][exception.py:135][ERROR][Internal Server Error: /login/]
+Traceback (most recent call last):
+  File "D:\solftware\python2.7\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "D:\solftware\python2.7\lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view user_center.views.web_login didn't return an HttpResponse object. It returned None instead.
+[2018-10-16 11:45:27,453][Thread-4:17052][task_id:django.request][exception.py:135][ERROR][Internal Server Error: /login/]
+Traceback (most recent call last):
+  File "D:\solftware\python2.7\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "D:\solftware\python2.7\lib\site-packages\django\utils\deprecation.py", line 142, in __call__
+    response = self.process_response(request, response)
+  File "D:\solftware\python2.7\lib\site-packages\django\middleware\clickjacking.py", line 32, in process_response
+    if response.get('X-Frame-Options') is not None:
+AttributeError: 'unicode' object has no attribute 'get'
