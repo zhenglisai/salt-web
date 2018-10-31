@@ -1,4 +1,5 @@
-#  salt-web
-##  用于构建以saltstack为核心的控制中心  
-#  运行
+<img src="logo/salt-web-logo-black.png"  alt="salt-stack" />
+#salt-web  
+##用于构建以saltstack为核心的控制中心  
+#运行  
 python manage.py runserver 0.0.0.0:8080
