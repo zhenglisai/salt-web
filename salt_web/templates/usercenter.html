@@ -1,0 +1,192 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>salt-web</title>
+
+	<!-- Global stylesheets -->
+	<link href="{% static 'css/icons/icomoon/styles.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static 'css/minified/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static 'css/minified/core.min.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static 'css/minified/components.min.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static 'css/minified/colors.min.css' %}" rel="stylesheet" type="text/css">
+	<!-- /global stylesheets -->
+
+	<!-- Core JS files -->
+	<script type="text/javascript" src="{% static 'js/core/libraries/jquery.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/core/libraries/bootstrap.min.js' %}"></script>
+	<!-- /core JS files -->
+
+	<!-- Theme JS files -->
+	<script type="text/javascript" src="{% static 'js/core/app.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/pages/user_pages_profile.js' %}"></script>
+	<!-- /theme JS files -->
+    <!-- ico -->
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}">
+    <!-- /ico -->
+</head>
+
+<body class="navbar-top">
+
+	<!-- Main navbar -->
+	<div class="navbar navbar-default navbar-fixed-top header-highlight">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="/index/"><img src="{% static 'images/salt-web-logo.png' %}" ></a>
+		</div>
+
+		<div class="navbar-collapse collapse" id="navbar-mobile">
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown dropdown-user">
+					<a class="dropdown-toggle" data-toggle="dropdown">
+						<i class="icon-user"></i>
+						<span>zhenglisai</span>
+						<i class="caret"></i>
+					</a>
+
+					<ul class="dropdown-menu dropdown-menu-right">
+						<li><a href="/user/"><i class="icon-vcard"></i> 个人中心</a></li>
+						<li class="divider"></li>
+						<li><a href="/logout/"><i class="icon-switch2"></i> 退出登录</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- /main navbar -->
+
+
+	<!-- Page container -->
+	<div class="page-container">
+
+		<!-- Page content -->
+		<div class="page-content">
+
+			<!-- Main sidebar -->
+			<div class="sidebar sidebar-main sidebar-fixed">
+				<div class="sidebar-content">
+					<!-- Main navigation -->
+					<div class="sidebar-category sidebar-category-visible">
+						<div class="category-content no-padding">
+							<ul class="navigation navigation-main navigation-accordion">
+								<!-- Main -->
+								<li class="navigation-header">
+                                    <span>首页</span> 
+                                    <i class="icon-menu" title="控制台"></i>
+                                </li>
+								<li><a href="/index/"><i class="icon-home4"></i> <span>控制台</span></a></li>
+
+								<!-- Page kits -->
+								<li class="navigation-header">
+                                    <span>用户相关</span> 
+                                    <i class="icon-menu" title="用户相关"></i>
+                                </li>
+								<li>
+									<a href="#"><i class="icon-people"></i> <span>用户中心</span></a>
+									<ul>
+										<li class="active"><a href="/user/"><i class="icon-vcard"></i>个人中心</a></li>
+									</ul>
+								</li>
+								<!-- /page kits -->
+							</ul>
+						</div>
+					</div>
+					<!-- /main navigation -->
+				</div>
+			</div>
+			<!-- /main sidebar -->
+            <!-- Main content -->
+			<div class="content-wrapper">
+                <!-- Content area -->
+				<div class="content">
+                    <!-- User profile -->
+					<div class="row">
+						<div class="col-lg-12">
+                            <div class="tab-pane">
+								<!-- Profile info -->
+								<div class="panel panel-flat">
+									<div class="panel-heading">
+										<h6 class="panel-title">用户信息</h6>
+									</div>
+
+									<div class="panel-body">
+										<form action="/change_passwd/" method="POST">
+                                        {% csrf_token %}
+											<div class="form-group">
+												<div class="row">
+													<div class="col-md-6">
+														<label>用户名</label>
+														<input type="text" value="{{ username }}" readonly="readonly" class="form-control">
+													</div>
+													<div class="col-md-6">
+														<label>角色</label>
+														<input type="text" value="admin" readonly="readonly" class="form-control">
+													</div>
+												</div>
+											</div>
+                                            
+                                            <div class="form-group">
+												<div class="row">
+													<div class="col-md-6">
+														<label>邮箱</label>
+														<input type="text" value="{{ email }}" name="email" class="form-control">
+													</div>
+													<div class="col-md-6">
+														<label>手机</label>
+														<input type="text" value="{{ phone }}" name="phone" class="form-control">
+													</div>
+												</div>
+											</div>
+
+											<div class="form-group">
+												<div class="row">
+                                                    <div class="col-md-4">
+														<label>旧密码</label>
+														<input type="password" name="old_password" class="form-control" required="true">
+													</div>
+													<div class="col-md-4">
+														<label>新密码</label>
+														<input type="password" name="new_password" class="form-control" required="true">
+													</div>
+													<div class="col-md-4">
+														<label>重复新密码</label>
+														<input type="password" name="repeat_new_password" class="form-control" required="true">
+													</div>
+												</div>
+											</div>
+							                <div class="text-right">
+							                	<button type="submit" id="submit", class="btn btn-primary">保存 <i class="icon-arrow-right14 position-right"></i></button>
+							                </div>
+										</form>
+									</div>
+								</div>
+								<!-- /profile info -->
+                            </div>
+                            {% if messages %}
+                                {% for message in messages %}
+                                <div {% if message.tags %} class="alert {{ message.tags }}  alert-styled-left" {% endif %}>
+									<button type="button" class="close" data-dismiss="alert"><span>&times;</span><span class="sr-only">Close</span></button>
+									<span class="text-semibold">{{ message }}</span>
+								</div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                    </div>
+                    <!-- /User profile -->
+                    <!-- Footer -->
+					<div class="footer text-muted">
+						&copy; 2018. Powered By ZhengLiSai
+					</div>
+					<!-- /footer -->
+                </div>
+                <!-- /Content area -->
+            </div>
+            <!-- /Main content -->    
+        </div>
+        <!-- Page content -->
+    </div>
+    <!-- Page container -->
+</body>
+</html>

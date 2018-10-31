@@ -1,0 +1,253 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>salt-web</title>
+
+	<!-- Global stylesheets -->
+	<link href="{% static '/css/icons/icomoon/styles.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static '/css/minified/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static '/css/minified/core.min.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static '/css/minified/components.min.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static '/css/minified/colors.min.css' %}" rel="stylesheet" type="text/css">
+	<!-- /global stylesheets -->
+
+	<!-- Core JS files -->
+	<script type="text/javascript" src="{% static '/js/plugins/loaders/pace.min.js' %}"></script>
+	<script type="text/javascript" src="{% static '/js/core/libraries/jquery.min.js' %}"></script>
+	<script type="text/javascript" src="{% static '/js/core/libraries/bootstrap.min.js' %}"></script>
+	<script type="text/javascript" src="{% static '/js/plugins/loaders/blockui.min.js' %}"></script>
+	<!-- /core JS files -->
+
+	<!-- Theme JS files -->
+    <script type="text/javascript" src="{% static '/js/plugins/tables/datatables/datatables.min.js' %}"></script>
+	<script type="text/javascript" src="{% static '/js/core/app.js' %}"></script>
+    <script type="text/javascript" src="{% static '/js/pages/datatables_basic.js' %}"></script>
+	<script type="text/javascript" src="{% static '/js/pages/dashboard.js' %}"></script>
+	<!-- /theme JS files -->
+    <!-- ico -->
+    <link rel="shortcut icon" href="{% static '/images/favicon.ico' %}">
+    <!-- /ico -->
+    
+    
+</head>
+
+<body class="navbar-top">
+
+	<!-- Main navbar -->
+	<div class="navbar navbar-default navbar-fixed-top header-highlight">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="/index/"><img src="{% static '/images/salt-web-logo.png' %}" ></a>
+		</div>
+
+		<div class="navbar-collapse collapse" id="navbar-mobile">
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown dropdown-user">
+					<a class="dropdown-toggle" data-toggle="dropdown">
+						<i class="icon-user"></i>
+						<span>{{ username }}</span>
+						<i class="caret"></i>
+					</a>
+
+					<ul class="dropdown-menu dropdown-menu-right">
+						<li class="active"><a href="/user/"><i class="icon-vcard"></i> 个人中心</a></li>
+						<li class="divider"></li>
+						<li><a href="/logout/"><i class="icon-switch2"></i> 退出登录</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- /main navbar -->
+
+
+	<!-- Page container -->
+	<div class="page-container">
+
+		<!-- Page content -->
+		<div class="page-content">
+
+			<!-- Main sidebar -->
+			<div class="sidebar sidebar-main sidebar-fixed">
+				<div class="sidebar-content">
+					<!-- Main navigation -->
+					<div class="sidebar-category sidebar-category-visible">
+						<div class="category-content no-padding">
+							<ul class="navigation navigation-main navigation-accordion">
+
+								<!-- Main -->
+                                <li class="navigation-header">
+                                    <span>首页</span> 
+                                    <i class="icon-menu" title="控制台"></i>
+                                </li>
+								<li><a href="/index/"><i class="icon-home4"></i> <span>控制台</span></a></li>
+
+								<!-- Page kits -->
+								<li class="navigation-header">
+                                    <span>用户相关</span> 
+                                    <i class="icon-menu" title="用户相关"></i>
+                                </li>
+								<li>
+									<a href="#"><i class="icon-people"></i> <span>用户中心</span></a>
+									<ul>
+										<li><a href="/user/"><i class="icon-vcard"></i>个人中心</a></li>
+									</ul>
+								</li>
+								<!-- /page kits -->
+							</ul>
+						</div>
+					</div>
+					<!-- /main navigation -->
+				</div>
+			</div>
+			<!-- /main sidebar -->
+
+
+			<!-- Main content -->
+			<div class="content-wrapper">
+
+				<!-- Content area -->
+				<div class="content">
+					<!-- Dashboard content -->
+					<div class="row">
+						<div class="col-lg-12">
+                            <div class="panel panel-flat">
+                                <div class="panel-heading">
+                                    <h5 class="panel-title">SaltStack任务信息</h5>
+                                    <div class="heading-elements">
+                                        <ul class="icons-list">
+                                            <li><a data-action="collapse"></a></li>
+                                            <li>
+                                                <a href="/index/">
+                                                    <i class="icon-sync"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+       
+                                <table class="table datatable-basic">
+                                    <thead>
+                                        <tr class="bg-blue">
+                                            <th>
+                                                <i class="icon-price-tags"></i>
+                                                任务ID
+                                            </th>
+                                            <th>
+                                                <i class="icon-user"></i>
+                                                创建者
+                                            </th>
+                                            <th>
+                                                <i class="icon-alarm"></i>
+                                                开始时间
+                                            </th>
+                                            <th>
+                                                <i class="icon-alarm-check"></i>
+                                                结束时间
+                                            </th>
+                                            <th>
+                                                <i class="icon-info22"></i>
+                                                当前状态
+                                            </th>
+                                            <th class="text-center">
+                                                <i class="icon-terminal"></i>
+                                                操作
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>zhenglisai</td>
+                                            <td>2018-10-30 12:33:22</td>
+                                            <td>2018-10-31 12:22:22</td>
+                                            <td><span class="label label-success">已完成</span></td>
+                                            <td class="text-center">
+                                                <ul class="icons-list">
+                                                    <li class="dropdown">
+                                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                            <i class="icon-menu9"></i>
+                                                        </a>
+        
+                                                        <ul class="dropdown-menu dropdown-menu-right">
+                                                            <li><a href="#"><i class="icon-search4"></i> 查看详情</a></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>002</td>
+                                            <td>zhenglisai</td>
+                                            <td>2018-10-29 23:23:44</td>
+                                            <td></td>
+                                            <td>
+                                                <span class="label label-info">
+                                                <i class="icon-spinner6 spinner"></i>
+                                                进行中
+                                                </span>
+                                            </td>
+                                            <td class="text-center">
+                                                <ul class="icons-list">
+                                                    <li class="dropdown">
+                                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                            <i class="icon-menu9"></i>
+                                                        </a>
+                                                        <ul class="dropdown-menu dropdown-menu-right">
+                                                            <li><a href="#"><i class="icon-search4"></i> 查看详情</a></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>003</td>
+                                            <td>zhenglisai</td>
+                                            <td>2018-10-29 23:23:44</td>
+                                            <td>2018-10-29 23:33:00</td>
+                                            <td><span class="label label-danger">执行失败</span></td>
+                                            <td class="text-center">
+                                                <ul class="icons-list">
+                                                    <li class="dropdown">
+                                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                            <i class="icon-menu9"></i>
+                                                        </a>
+                                                        <ul class="dropdown-menu dropdown-menu-right">
+                                                            <li><a href="get_task_detail/"><i class="icon-search4"></i> 查看详情</a></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+						</div>
+					</div>
+					<!-- /dashboard content -->
+
+
+					<!-- Footer -->
+					<div class="footer text-muted">
+						&copy; 2018. Powered By ZhengLiSai
+					</div>
+					<!-- /footer -->
+
+				</div>
+				<!-- /content area -->
+
+			</div>
+			<!-- /main content -->
+
+		</div>
+		<!-- /page content -->
+
+	</div>
+	<!-- /page container -->
+
+</body>
+</html>

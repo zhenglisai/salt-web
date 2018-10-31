@@ -2,23 +2,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>salt-web</title>
+
+	<!-- Global stylesheets -->
+	<link href="{% static 'css/icons/icomoon/styles.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static 'css/minified/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static 'css/minified/core.min.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static 'css/minified/components.min.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static 'css/minified/colors.min.css' %}" rel="stylesheet" type="text/css">
+	<!-- /global stylesheets -->
+
+	<!-- Core JS files -->
+	<script type="text/javascript" src="{% static 'js/core/libraries/jquery.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/core/libraries/bootstrap.min.js' %}"></script>
+	<!-- /core JS files -->
+
+
+	<!-- Theme JS files -->
+	<script type="text/javascript" src="{% static 'js/core/app.js' %}"></script>
+	<!-- /theme JS files -->
+    
+    <!-- ico -->
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}">
+    <!-- /ico -->
 </head>
-<body>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
-    <form action="/login/" method="post">
-        {% csrf_token %}
-        <input type="text" name="username">
-        <input type="text" name="password">
-        <input type="submit">
-    </form>
-    {% if messages %}
-        <ul class="messages">
-            {% for message in messages %}
-                <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}
+
+<body class="bg-slate-800">
+
+	<!-- Main navbar -->
+	<div class="navbar navbar-inverse">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#"><img src="{% static 'images/salt-web-logo.png' %}" ></a>
+		</div>
+	</div>
+	<!-- /main navbar -->
+
+
+	<!-- Page container -->
+	<div class="page-container login-container">
+
+		<!-- Page content -->
+		<div class="page-content">
+
+			<!-- Main content -->
+			<div class="content-wrapper">
+
+				<!-- Content area -->
+				<div class="content">
+
+					<!-- Simple login form -->
+					<form action="/login/" method="POST">
+                        {% csrf_token %}
+						<div class="panel panel-body login-form">
+							<div class="text-center">
+								<div class="icon-object border-slate-300 text-slate-300"><i class="icon-reading"></i></div>
+								<h5 class="content-group">欢迎使用 <small class="display-block">请输入用户名和密码</small></h5>
+							</div>
+
+							<div class="form-group has-feedback has-feedback-left">
+								<input type="text" class="form-control" name="username" placeholder="用户名">
+								<div class="form-control-feedback">
+									<i class="icon-user text-muted"></i>
+								</div>
+							</div>
+
+							<div class="form-group has-feedback has-feedback-left">
+								<input type="password" class="form-control" name="password" placeholder="密码">
+								<div class="form-control-feedback">
+									<i class="icon-lock2 text-muted"></i>
+								</div>
+							</div>
+                            
+                            <div class="form-group has-feedback has-feedback-left">
+								<input type="text" class="form-control" name="token" placeholder="验证码">
+								<div class="form-control-feedback">
+									<i class="icon-key text-muted"></i>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<button type="submit" class="btn btn-primary btn-block">登录 <i class="icon-circle-right2 position-right"></i></button>
+							</div>
+
+							<div class="text-center">
+								<a href="#" onclick="alert('请联系管理员')">忘记密码?</a>
+							</div>
+                            {% if messages %}
+                                {% for message in messages %}
+                                <div class="alert bg-danger alert-styled-left">
+									<button type="button" class="close" data-dismiss="alert"><span>&times;</span><span class="sr-only">Close</span></button>
+									<span class="text-semibold">{{ message }}</span>
+								</div>
+                                {% endfor %}
+                            {% endif %}
+						</div>
+					</form>
+					<!-- /simple login form -->
+                    
+
+					<!-- Footer -->
+					<div class="footer text-muted">
+						&copy; 2018. Powered By ZhengLiSai
+					</div>
+					<!-- /footer -->
+
+				</div>
+				<!-- /content area -->
+
+			</div>
+			<!-- /main content -->
+
+		</div>
+		<!-- /page content -->
+
+	</div>
+	<!-- /page container -->
+
 </body>
 </html>

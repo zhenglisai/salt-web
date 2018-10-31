@@ -47,18 +47,18 @@ LOGGING = {
             'formatter': 'simple'
         },
         'default': {
-            'level': 'INFO',
+            'level': 'DEBUG',
             'class': 'logging.handlers.RotatingFileHandler',
-            'filename': os.path.join(BASE_LOG_DIR, "salt_web_info.log"),
+            'filename': os.path.join(BASE_LOG_DIR, "salt_web_debug.log"),
             'maxBytes': 1024 * 1024 * 50,
             'backupCount': 3,
             'formatter': 'standard',
             'encoding': 'utf-8',
         },
-        'error': {
-            'level': 'ERROR',
+        'info': {
+            'level': 'INFO',
             'class': 'logging.handlers.RotatingFileHandler',
-            'filename': os.path.join(BASE_LOG_DIR, "salt_web_err.log"),
+            'filename': os.path.join(BASE_LOG_DIR, "salt_web_info.log"),
             'maxBytes': 1024 * 1024 * 50,
             'backupCount': 5,
             'formatter': 'standard',
@@ -76,7 +76,7 @@ LOGGING = {
     },
     'loggers': {
         '': {
-            'handlers': ['default', 'console', 'error'],
+            'handlers': ['default', 'console'],
             'level': 'DEBUG',
             'propagate': True,
         },
@@ -189,9 +189,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/assets/'
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, "assets"),
 )
 STATICFILES_FINDERS = (
     "django.contrib.staticfiles.finders.FileSystemFinder",
