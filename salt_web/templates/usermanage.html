@@ -1,0 +1,297 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>salt-web</title>
+
+	<!-- Global stylesheets -->
+	<link href="{% static 'css/icons/icomoon/styles.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static 'css/minified/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static 'css/minified/core.min.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static 'css/minified/components.min.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static 'css/minified/colors.min.css' %}" rel="stylesheet" type="text/css">
+	<!-- /global stylesheets -->
+
+	<!-- Core JS files -->
+    <script type="text/javascript" src="{% static '/js/plugins/loaders/pace.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/core/libraries/jquery.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/core/libraries/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static '/js/plugins/loaders/blockui.min.js' %}"></script>
+	<!-- /core JS files -->
+
+	<!-- Theme JS files -->
+    <script type="text/javascript" src="{% static 'js/plugins/tables/datatables/datatables.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/core/app.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/pages/datatables_basic.js' %}"></script>
+    <script type="text/javascript" src="{% static '/js/pages/dashboard.js' %}"></script>
+	<!-- /theme JS files -->
+    <!-- ico -->
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}">
+    <!-- /ico -->
+</head>
+
+<body>
+
+	<!-- Main navbar -->
+	<div class="navbar navbar-default header-highlight">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="index.html"><img src="{% static 'images/salt-web-logo.png' %}" ></a>
+		</div>
+
+		<div class="navbar-collapse collapse" id="navbar-mobile">
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown dropdown-user">
+					<a class="dropdown-toggle" data-toggle="dropdown">
+						<i class="icon-user"></i>
+						<span>{{ username }}</span>
+						<i class="caret"></i>
+					</a>
+
+					<ul class="dropdown-menu dropdown-menu-right">
+						<li><a href="/user/"><i class="icon-vcard"></i> 个人中心</a></li>
+						<li class="divider"></li>
+						<li><a href="/logout/"><i class="icon-switch2"></i> 退出登录</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- /main navbar -->
+
+
+	<!-- Page container -->
+	<div class="page-container">
+
+		<!-- Page content -->
+		<div class="page-content">
+
+			<!-- Main sidebar -->
+			<div class="sidebar sidebar-main">
+				<div class="sidebar-content">
+
+					<!-- Main navigation -->
+					<div class="sidebar-category sidebar-category-visible">
+						<div class="category-content no-padding">
+							<ul class="navigation navigation-main navigation-accordion">
+								<!-- Main -->
+								<li class="navigation-header">
+                                    <span>首页</span> 
+                                    <i class="icon-menu" title="概览"></i>
+                                </li>
+								<li><a href="/index/"><i class="icon-home4"></i> <span>概览</span></a></li>
+
+								<!-- Page kits -->
+								<li class="navigation-header">
+                                    <span>用户相关</span> 
+                                    <i class="icon-menu" title="用户相关"></i>
+                                </li>
+								<li>
+									<a href="#"><i class="icon-people"></i> <span>用户中心</span></a>
+									<ul>
+										<li><a href="/user/"><i class="icon-vcard"></i>个人中心</a></li>
+                                        <li class="active"><a href="/user_manage/"><i class="icon-users4"></i>用户管理</a></li>
+									</ul>
+								</li>
+								<!-- /page kits -->
+							</ul>
+						</div>
+					</div>
+					<!-- /main navigation -->
+
+				</div>
+			</div>
+			<!-- /main sidebar -->
+
+
+			<!-- Main content -->
+			<div class="content-wrapper">
+				<!-- Content area -->
+				<div class="content">
+                    
+		             <!-- Vertical form modal -->
+					<div id="modal_form_add_user" class="modal fade">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header bg-primary">
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+									<h5 class="modal-title">添加用户</h5>
+								</div>
+
+								<form action="/user_add/" method="POST">
+                                    {% csrf_token %}
+									<div class="modal-body">
+										<div class="form-group">
+											<div class="row">
+												<div class="col-sm-6">
+													<label>用户名</label>
+													<input type="text" placeholder="用户名" name="username" class="form-control">
+												</div>
+
+												<div class="col-sm-6">
+													<label>角色</label>
+													<input type="text" placeholder="user" name="role" readonly="readonly" class="form-control">
+												</div>
+											</div>
+										</div>
+
+										<div class="form-group">
+											<div class="row">
+												<div class="col-sm-6">
+													<label>Email</label>
+													<input type="text" placeholder="xxxx@xxx.com" name="email" class="form-control">
+												</div>
+
+												<div class="col-sm-6">
+													<label>Phone </label>
+													<input type="text" placeholder="18688888888" name="phone" class="form-control">
+												</div>
+											</div>
+										</div>
+
+										<div class="form-group">
+											<div class="row">
+												<div class="col-sm-6">
+													<label>密码</label>
+													<input type="password" placeholder="password" name="password" class="form-control">
+                                                    <span class="help-block">密码由不少于8位的数字和大小写字母组成</span>
+												</div>
+
+												<div class="col-sm-6">
+													<label>再次输入密码</label>
+													<input type="password" placeholder="password again" name="password_again" class="form-control">
+                                                    <span class="help-block">密码由不少于8位的数字和大小写字母组成</span>
+												</div>
+											</div>
+										</div>									
+									</div>
+
+									<div class="modal-footer">
+										<button type="button" class="btn btn-link" data-dismiss="modal">关闭</button>
+										<button type="submit" class="btn btn-primary">提交</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+                    <!-- Inline form modal -->
+					<div id="modal_form_del_user" class="modal fade">
+						<div class="modal-dialog">
+							<div class="modal-content text-center">
+								<div class="modal-header bg-danger">
+									<h5 class="modal-title">删除用户</h5>
+								</div>
+
+								<form action="/user_del/" method="POST" class="form-inline">
+                                    {% csrf_token %}
+									<div class="modal-body">
+										<div class="form-group has-feedback">
+											<label>请输入要删除的用户名: </label>
+											<input type="text" placeholder="用户名" name="del_username" class="form-control">
+											<div class="form-control-feedback">
+												<i class="icon-user text-muted"></i>
+											</div>
+										</div>
+									</div>
+
+									<div class="modal-footer text-center">
+										<button type="submit" class="btn btn-danger"><i class="icon-notification2"></i> 删除用户</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<!-- /vertical form modal -->
+                    <!-- Table header styling -->
+					<div class="row">
+						<div class="col-lg-12">
+                            <div class="panel panel-flat">
+                                <div class="panel-heading">
+                                    <h5 class="panel-title">用户管理</h5>
+                                    <div class="heading-elements">
+                                        <ul class="icons-list">
+                                            <li><a data-action="collapse"></a></li>
+                                            <li>
+                                                <a href="/user_manage/">
+                                                    <i class="icon-sync"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
+                                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal_form_add_user"><i class="icon-user-plus position-left"> 添加用户</i></button>
+                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal_form_del_user"><i class="icon-user-cancel position-left"></i> 删除用户</button>
+                                </div>
+                                <table class="table datatable-basic">
+                                    <thead>
+                                        <tr class="bg-blue">
+                                            <th>
+                                                <i class="icon-user"></i>
+                                                用户名
+                                            </th>
+                                            <th>
+                                                <i class="icon-footprint"></i>
+                                                上次登陆
+                                            </th>
+                                            <th>
+                                                <i class="icon-user-lock"></i>
+                                                角色
+                                            </th>
+                                            <th>
+                                                <i class="icon-phone2"></i>
+                                                手机号
+                                            </th>
+                                            <th>
+                                                <i class="icon-envelop"></i>
+                                                邮箱
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% if user_list %}
+                                        {% for user in user_list %}
+                                        <tr>
+                                            <td>{{ user.username }}</td>
+                                            <td>{{ user.last_login }}</td>
+                                            <td><span class="label label-success">{{ user.role }}</span></td>
+                                            <td>{{ user.phone }}</td>
+                                            <td>{{ user.email }}</td>
+                                        </tr>
+                                        {% endfor %}
+                                    {% endif %}
+                                    </tbody>
+                                </table>
+                            </div>
+						</div>
+					</div>
+                    {% if messages %}
+                                {% for message in messages %}
+                                <div {% if message.tags %} class="alert {{ message.tags }}  alert-styled-left" {% endif %}>
+									<button type="button" class="close" data-dismiss="alert"><span>&times;</span><span class="sr-only">Close</span></button>
+									<span class="text-semibold">{{ message }}</span>
+								</div>
+                                {% endfor %}
+                    {% endif %}
+					<!-- /table header styling -->
+					<!-- Footer -->
+					<div class="footer text-muted">
+						&copy; 2018. Powered By ZhengLiSai
+					</div>
+					<!-- /footer -->
+				</div>
+				<!-- /content area -->
+
+			</div>
+			<!-- /main content -->
+
+		</div>
+		<!-- /page content -->
+
+	</div>
+	<!-- /page container -->
+
+</body>
+</html>

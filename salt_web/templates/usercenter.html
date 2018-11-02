@@ -42,7 +42,7 @@
 				<li class="dropdown dropdown-user">
 					<a class="dropdown-toggle" data-toggle="dropdown">
 						<i class="icon-user"></i>
-						<span>zhenglisai</span>
+						<span>{{ username }}</span>
 						<i class="caret"></i>
 					</a>
 
@@ -74,9 +74,9 @@
 								<!-- Main -->
 								<li class="navigation-header">
                                     <span>首页</span> 
-                                    <i class="icon-menu" title="控制台"></i>
+                                    <i class="icon-menu" title="概览"></i>
                                 </li>
-								<li><a href="/index/"><i class="icon-home4"></i> <span>控制台</span></a></li>
+								<li><a href="/index/"><i class="icon-home4"></i> <span>概览</span></a></li>
 
 								<!-- Page kits -->
 								<li class="navigation-header">
@@ -87,6 +87,7 @@
 									<a href="#"><i class="icon-people"></i> <span>用户中心</span></a>
 									<ul>
 										<li class="active"><a href="/user/"><i class="icon-vcard"></i>个人中心</a></li>
+                                        <li><a href="/user_manage/"><i class="icon-users4"></i>用户管理</a></li>
 									</ul>
 								</li>
 								<!-- /page kits -->
@@ -145,14 +146,17 @@
                                                     <div class="col-md-4">
 														<label>旧密码</label>
 														<input type="password" name="old_password" class="form-control" required="true">
+                                                        <span class="help-block">密码由不少于8位的数字和大小写字母组成</span>
 													</div>
 													<div class="col-md-4">
 														<label>新密码</label>
 														<input type="password" name="new_password" class="form-control" required="true">
+                                                        <span class="help-block">密码由不少于8位的数字和大小写字母组成</span>
 													</div>
 													<div class="col-md-4">
 														<label>重复新密码</label>
 														<input type="password" name="repeat_new_password" class="form-control" required="true">
+                                                        <span class="help-block">密码由不少于8位的数字和大小写字母组成</span>
 													</div>
 												</div>
 											</div>

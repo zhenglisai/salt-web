@@ -26,5 +26,6 @@ urlpatterns = [
     url(r'^user_add/', user.user_add),
     url(r'^index/', user.index),
     url(r'^user/', user.user_center),
+    url(r'^user_manage/', user.user_manage),
     url(r'^user_del/', user.user_del)
 ]
